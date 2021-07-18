@@ -81,10 +81,6 @@ class CartPole(Game):
             "    __       \n"
             "    __\__    \n",
 
-            "             \n"
-            "    \_       \n"
-            "    __\__    \n",
-
             "    _        \n"
             "     \       \n"
             "    __\__    \n",
@@ -93,21 +89,9 @@ class CartPole(Game):
             "     \       \n"
             "    __\__    \n",
 
-            "    |        \n"
-            "     \       \n"
-            "    __\__    \n",
-
-            "     \       \n"
-            "     |       \n"
-            "    __\__    \n",
-
             "     \       \n"
             "      \      \n"
             "    __|__    \n",
-
-            "     |       \n"
-            "     |       \n"
-            "    __\__    \n",
 
             "     |       \n"
             "      \      \n"
@@ -129,25 +113,10 @@ class CartPole(Game):
             "      /      \n"
             "    __|__    \n",
 
-            "       |     \n"
-            "       |     \n"
-            "    __/__    \n",
 
             "       /     \n"
             "      /      \n"
             "    __|__    \n",
-
-            "       /     \n"
-            "       |     \n"
-            "    __/__    \n",
-
-            "       |     \n"
-            "       /     \n"
-            "    __/__    \n",
-
-            "       |     \n"
-            "       /     \n"
-            "    __/__    \n",
 
             "        /    \n"
             "       /     \n"
@@ -158,16 +127,12 @@ class CartPole(Game):
             "    __/__    \n",
 
             "             \n"
-            "       _/    \n"
-            "    __/__    \n",
-
-            "             \n"
             "       __    \n"
             "    __/__    \n"
         ]
         pole = poles[
             max(min(int(
-                np.floor((self._angle / np.pi + 1 / 2) * (len(poles)) - 1)
+                np.floor((self._angle / np.pi + 1 / 2) * (len(poles)))
             ),len(poles)), 0)
         ]
 
