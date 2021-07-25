@@ -17,17 +17,19 @@ class GameRunner(object):
         self._players = {i: player for i, player in enumerate(players)}
 
     def player_move(self):
-        """TODO: Allow the next player to make their turn.
-        :returns: TODO
+        """Allow the next player to make their turn.
+        :returns: None
 
         """
         player_name = self._game.get_next_player()
         observation = self._game.observe_game(player_name)
         possible_moves = self._game.get_available_moves()
+
         player = self._players[next_player_name]
-        next_move = player.select_move(observation, possible_moves)
-        self._game.make_move(move)
         score = self._game.get_scoreboard()[player_name]
         player.update_score(score)
+
+        next_move = player.select_move(observation, possible_moves)
+        self._game.make_move(move)
 
 
