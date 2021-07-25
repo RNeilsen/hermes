@@ -58,10 +58,11 @@ class QLearner(object):
         self._latest_move = None
         self._latest_observation = None
 
-    def _select_move(self, observation):
+    def select_move(self, observation, available_moves):
         """Select the next move to make somewhat randomly.
 
         :observation: an observation of the observation of the game
+        :available_moves: list of possible actions which can be made
         :returns: The move selected to be made
 
         """
@@ -72,7 +73,7 @@ class QLearner(object):
             population=rewards.index,
             weights=selection_weights,
             k=1)[0]
-        assert move in self._game.get_available_moves(), 'Invalid move selected'
+        assert move in available_moves, 'Invalid move selected'
         return move
 
     def _make_move(self, move):
@@ -109,7 +110,7 @@ class QLearner(object):
                        observation,
                        self._latest_reward)
 
-        move = self._select_move(observation)
+        move = self._select_move(observation, available_moves)
 
         self._latest_reward = self.make_move(move)
         self._latest_observation = observation
